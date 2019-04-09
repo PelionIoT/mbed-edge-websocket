@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:WigWagCo/mbed-edge-websocket.git"
+    "url": "git@github.com:armPelionEdge/mbed-edge-websocket.git"
   },
   "keywords": [
     "mbed"
@@ -16,9 +16,9 @@
   "author": "",
   "license": "",
   "bugs": {
-    "url": "https://github.com/WigWagCo/mbed-edge-websocket/issues"
+    "url": "https://github.com/armPelionEdge/mbed-edge-websocket/issues"
   },
-  "homepage": "https://github.com/WigWagCo/mbed-edge-websocket#readme",
+  "homepage": "https://github.com/armPelionEdge/mbed-edge-websocket#readme",
   "dependencies": {
     "es6-promisify": "^5.0.0",
     "json-rpc-ws": "^5.0.0",
