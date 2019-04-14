@@ -206,6 +206,8 @@ MGMTClient.prototype.init = async function() {
                     })
                 }
             })
+        }, error => {
+            console.log(CON_PR,'\x1b[33m Could not fetch mbed devices');
         })
     }, 60000)
 }
