@@ -33,7 +33,7 @@ function RemoteClientService(socket_path, pt_api_path, mgmt_api_path, name) {
 RemoteClientService.prototype.init = async function() {
     var self = this;
     // Setup client to edge-core websocket api /1/mgmt
-    self.mgmtClient.init();
+    await self.mgmtClient.init();
     return self.edgeRpc.init();
 };
 

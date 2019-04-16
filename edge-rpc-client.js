@@ -140,6 +140,7 @@ EdgeRpcClient.prototype.sendRequest = async function(method, params) {
                     resolve(response);
                 } else {
                     console.log(ERROR, method, 'failed. Error: ', error);
+                    if(error.code && error.code == "ERR_ASSERTION") error = "Assertion error: edge-core disconnected"
                     reject(error);
                 }
             });

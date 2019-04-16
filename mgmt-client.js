@@ -178,6 +178,9 @@ MGMTClient.prototype.init = async function() {
                                 console.log(CON_PR, "Setting "+endpointName+" "+uri+" value: "+parsedVal);
                                 mbedDevice.onResourceChange(uri, parsedVal);
                             }
+                        }, error => {
+                            if(error.code && error.code == "ERR_ASSERTION") error = "Assertion error: edge-core disconnected"
+                            console.log(CON_PR,'\x1b[33m Could not fetch '+endpointName+' resources,',error);
                         })
                     })
                 }
@@ -199,6 +202,9 @@ MGMTClient.prototype.init = async function() {
                                     console.log(CON_PR, "Setting "+device.endpointName+" "+resource.uri+" value: "+parsedVal);
                                     devController.onResourceChange(resource.uri, parse(resource.uri, val.stringValue));
                                 }
+                            }, error => {
+                                if(error.code && error.code == "ERR_ASSERTION") error = "Assertion error: edge-core disconnected"
+                                console.log(CON_PR,'\x1b[33m Could not fetch '+device.endpointName+' resources,',error);
                             })
                         })
                     },reject => {
@@ -207,7 +213,8 @@ MGMTClient.prototype.init = async function() {
                 }
             })
         }, error => {
-            console.log(CON_PR,'\x1b[33m Could not fetch mbed devices');
+            if(error.code && error.code == "ERR_ASSERTION") error = "Assertion error: edge-core disconnected"
+            console.log(CON_PR,'\x1b[33m Could not fetch mbed devices,', error);
         })
     }, 60000)
 }
